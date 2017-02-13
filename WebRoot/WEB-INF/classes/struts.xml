@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <!-- 禁用动态方法访问 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- 配置成开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 配置拓展名为action -->
+	<constant name="struts.action.extention" value="action" />
+	<!-- 把主题配置成simple -->
+	<constant name="struts.ui.theme" value="simple" />
+   
+    
+    
+    <!-- 配置全局结果及异常映射 -->
+    <package name="base-default" extends="struts-default">
+    	<!-- 返回结果类型 -->
+    	<result-types>
+    		<result-type name="error" class="cn.cs.core.action.SysResultAction"></result-type>
+    	</result-types>
+    	<!-- 返回结果 -->
+    	<global-results>
+    		<result name="error" type="error">/WEB-INF/jsp/error/error.jsp</result>
+    		<result name="sysError">/WEB-INF/jsp/error/error.jsp</result>
+    		<result name="input">/WEB-INF/jsp/error/error.jsp</result>
+    	</global-results>
+    	<!-- 全局异常处理 -->
+    	<global-exception-mappings>
+    		<exception-mapping result="sysError" exception="cn.cs.core.exception.SysException"></exception-mapping>
+    		<exception-mapping result="input" exception="java.lang.Exception"></exception-mapping>
+    	</global-exception-mappings>
+    </package>
+    
+    <!-- 导入每个子模块的strtus配置文件 -->
+    <include file="cn/cs/nsfw/*/conf/*-struts.xml"></include>
+    <!-- 导入系统首页 -->
+    <include file="cn/cs/*/conf/*-struts.xml"></include>
+    
+</struts>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.cs.test.entity">
+
+	<class name="Person" table="t_person">
+		<id name="id" type = "java.lang.String">
+			<column name="id" length="32"></column>
+			<generator class="uuid.hex"></generator>
+		</id>
+		<property name="name" type = "java.lang.String">
+			<column name="name" length="20" not-null="true" ></column>
+		</property>
+	</class>
+
+</hibernate-mapping>
+
+
+
