@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <package name="article-action" namespace="/" extends="base-default">
+   		<action name="article_*" class="cn.cs.blog.article.action.ArticleAction" method="{1}">
+   			<result name ="{1}">/WEB-INF/jsp/blog/{1}.jsp</result>
+   			<result name="list_home" type="redirectAction">
+   				<param name="actionName">blog_home</param>
+   				<param name="namespace">/</param>
+   			</result>
+   			<result name="articleList" type="redirectAction">
+   				<param name="actionName">article_articleListUI</param>
+   			</result>
+   		</action>
+   </package>
+   
+   
+</struts>
